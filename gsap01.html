@@ -71,14 +71,35 @@
   justify-content: center;
   font-size: 2rem;
 }
+
+.box2 {
+  width: 150px;
+  height: 100px;
+  background: #4ade80;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #111;
+  font-size: 2rem;
+  transform: translateY(50px); /* 초기 아래 위치 */
+  opacity: 0; /* 초기 투명 */
+}
 	</style>
 </head>
 
 <body>
 
+		<section class="timeline-section">
+  <div class="box2">1</div>
+  <div class="box2">2</div>
+  <div class="box2">3</div>
+</section>
+
+
 	<section>
 		<h1>스크롤 내려보세요 ↓</h1>
 	</section>
+
 
 	<section class="section2">
 		<p class="text left2">왼쪽에서 등장</p>
@@ -232,6 +253,20 @@
 		}
 		});
 
+
+
+		const boxes = document.querySelectorAll(".timeline-section .box2");
+
+		// Timeline 생성
+		const tl = gsap.timeline({ defaults: { duration: 1, ease: "power2.out" } });
+
+		// 순차적으로 아래 → 위로 등장
+		boxes.forEach((box, index) => {
+		tl.to(box, {
+			y: 0,       // 원래 위치로 이동
+			opacity: 1, // 나타나기
+		}, index * 0.3); // index * 0.3초 딜레이로 순차 등장
+		});
 	</script>
 </body>
 
