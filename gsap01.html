@@ -45,6 +45,32 @@
 		.section {
 			/* border-top: 10px solid #fff */
 		}
+
+		.horizontal-section {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  background: #222;
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.list-wrapper {
+  display: flex;
+  width: 500%; /* 아이템 개수에 맞춰 충분히 늘리기 */
+}
+
+.item {
+  flex: 0 0 50%; /* 5개 아이템이면 20%씩 */
+  height: 300px;
+  margin: 0 10px;
+  background: #4ade80;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+}
 	</style>
 </head>
 
@@ -54,15 +80,32 @@
 		<h1>스크롤 내려보세요 ↓</h1>
 	</section>
 
-	<section class="trigger">
-		<div class="box"></div>
+	<section class="section2">
+		<p class="text left2">왼쪽에서 등장</p>
 	</section>
 
 	<section class="section">
 		<div class="text-wrapper">
 			<p class="text left">왼쪽에서 등장</p>
+			<p class="text left">왼쪽에서 등장</p>
+			<p class="text left">왼쪽에서 등장</p>
+			<p class="text left">왼쪽에서 등장</p>
 			<p class="text right">오른쪽에서 등장</p>
 		</div>
+	</section>
+
+	<section class="horizontal-section">
+  <div class="list-wrapper">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+  </div>
+</section>
+
+	<section class="trigger">
+		<div class="box"></div>
 	</section>
 
 	<div class="spacer">끝</div>
@@ -86,6 +129,24 @@
 			}
 		});
 
+		// 단독
+		gsap.fromTo('.left2',
+			{ x: 150, y: 150, opacity: 0 },
+			{
+				x: 0,
+				y: 0,
+				opacity: 1,
+				scrollTrigger: {
+					trigger: '.section2',
+					start: "top 80%",
+					end: "bottom top",
+					scrub: true,
+					// markers: true
+				}
+			}
+		);
+	
+
 		gsap.utils.toArray(".section").forEach(section => {
 			// 1️⃣ section 전체 pin
 			ScrollTrigger.create({
@@ -101,7 +162,27 @@
 			const leftText = section.querySelector(".text.left");
 			const rightText = section.querySelector(".text.right");
 
-			gsap.fromTo(leftText,
+			// 섹션 안의 모든 왼쪽 텍스트
+			const leftTexts = section.querySelectorAll(".text.left");
+			leftTexts.forEach(el => {
+				gsap.fromTo(el,
+					{ x: -150, y: 100, opacity: 0 },
+					{
+						x: 0,
+						y: 0,
+						opacity: 1,
+						scrollTrigger: {
+							trigger: el, // 각 요소 기준으로
+							start: "top 90%",
+							end: "bottom top",
+							scrub: true,
+							// markers: true
+						}
+					}
+				);
+			});
+			
+			/* gsap.fromTo(leftText,
 				{ x: -150, y: 100, opacity: 0 },
 				{
 					x: 0,
@@ -116,7 +197,7 @@
 					}
 				}
 			);
-
+ */
 			gsap.fromTo(rightText,
 				{ x: 150, y: 150, opacity: 0 },
 				{
@@ -132,6 +213,23 @@
 					}
 				}
 			);
+		});
+
+
+		const horizontalSection = document.querySelector(".horizontal-section");
+		const listWrapper = horizontalSection.querySelector(".list-wrapper");
+
+		gsap.to(listWrapper, {
+		x: () => `-${listWrapper.scrollWidth - horizontalSection.clientWidth}px`, // 오른쪽 끝까지 이동
+		ease: "none",
+		scrollTrigger: {
+			trigger: horizontalSection,
+			start: "top top",
+			end: () => `+=${listWrapper.scrollWidth}`, // 스크롤 길이 = 컨텐츠 너비
+			pin: true,
+			scrub: true,
+			// markers: true
+		}
 		});
 
 	</script>
