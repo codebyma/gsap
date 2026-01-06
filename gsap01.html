@@ -47,53 +47,57 @@
 		}
 
 		.horizontal-section {
-  position: relative;
-  height: 100vh;
-  overflow: hidden;
-  background: #222;
-  color: #fff;
-  display: flex;
-  align-items: center;
-}
+			position: relative;
+			height: 100vh;
+			overflow: hidden;
+			background: #222;
+			color: #fff;
+			display: flex;
+			align-items: center;
+		}
 
-.list-wrapper {
-  display: flex;
-  width: 500%; /* 아이템 개수에 맞춰 충분히 늘리기 */
-}
+		.list-wrapper {
+			display: flex;
+			width: 500%;
+			/* 아이템 개수에 맞춰 충분히 늘리기 */
+		}
 
-.item {
-  flex: 0 0 50%; /* 5개 아이템이면 20%씩 */
-  height: 300px;
-  margin: 0 10px;
-  background: #4ade80;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-}
+		.item {
+			flex: 0 0 50%;
+			/* 5개 아이템이면 20%씩 */
+			height: 300px;
+			margin: 0 10px;
+			background: #4ade80;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 2rem;
+		}
 
-.box2 {
-  width: 150px;
-  height: 100px;
-  background: #4ade80;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #111;
-  font-size: 2rem;
-  transform: translateY(50px); /* 초기 아래 위치 */
-  opacity: 0; /* 초기 투명 */
-}
+		.box2 {
+			width: 150px;
+			height: 100px;
+			background: #4ade80;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			color: #111;
+			font-size: 2rem;
+			transform: translateY(50px);
+			/* 초기 아래 위치 */
+			opacity: 0;
+			/* 초기 투명 */
+		}
 	</style>
 </head>
 
 <body>
 
-		<section class="timeline-section">
-  <div class="box2">1</div>
-  <div class="box2">2</div>
-  <div class="box2">3</div>
-</section>
+	<section class="timeline-section">
+		<div class="box2">1</div>
+		<div class="box2">2</div>
+		<div class="box2">3</div>
+	</section>
 
 
 	<section>
@@ -116,14 +120,14 @@
 	</section>
 
 	<section class="horizontal-section">
-  <div class="list-wrapper">
-    <div class="item">1</div>
-    <div class="item">2</div>
-    <div class="item">3</div>
-    <div class="item">4</div>
-    <div class="item">5</div>
-  </div>
-</section>
+		<div class="list-wrapper">
+			<div class="item">1</div>
+			<div class="item">2</div>
+			<div class="item">3</div>
+			<div class="item">4</div>
+			<div class="item">5</div>
+		</div>
+	</section>
 
 	<section class="trigger">
 		<div class="box"></div>
@@ -135,6 +139,27 @@
 	<script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
 	<script>
 		gsap.registerPlugin(ScrollTrigger);
+
+		// 로딩되자마자 순차적 애니메이션
+		const boxes = document.querySelectorAll(".timeline-section .box2");
+
+		// Timeline 생성
+		const tl = gsap.timeline({
+			defaults: {
+				duration: 1, ease: "power2.out"
+			}
+		});
+
+		// 순차적으로 아래 → 위로 등장
+		boxes.forEach((box, index) => {
+			tl.to(box, {
+				y: 0,       // 원래 위치로 이동
+				opacity: 1, // 나타나기
+			}, index * 0.3); // index * 0.3초 딜레이로 순차 등장
+		});
+
+
+
 
 		gsap.to(".box", {
 			x: 400,
@@ -150,6 +175,8 @@
 			}
 		});
 
+
+		
 		// 단독
 		gsap.fromTo('.left2',
 			{ x: 150, y: 150, opacity: 0 },
@@ -166,7 +193,7 @@
 				}
 			}
 		);
-	
+
 
 		gsap.utils.toArray(".section").forEach(section => {
 			// 1️⃣ section 전체 pin
@@ -202,7 +229,7 @@
 					}
 				);
 			});
-			
+
 			/* gsap.fromTo(leftText,
 				{ x: -150, y: 100, opacity: 0 },
 				{
@@ -241,32 +268,20 @@
 		const listWrapper = horizontalSection.querySelector(".list-wrapper");
 
 		gsap.to(listWrapper, {
-		x: () => `-${listWrapper.scrollWidth - horizontalSection.clientWidth}px`, // 오른쪽 끝까지 이동
-		ease: "none",
-		scrollTrigger: {
-			trigger: horizontalSection,
-			start: "top top",
-			end: () => `+=${listWrapper.scrollWidth}`, // 스크롤 길이 = 컨텐츠 너비
-			pin: true,
-			scrub: true,
-			// markers: true
-		}
+			x: () => `-${listWrapper.scrollWidth - horizontalSection.clientWidth}px`, // 오른쪽 끝까지 이동
+			ease: "none",
+			scrollTrigger: {
+				trigger: horizontalSection,
+				start: "top top",
+				end: () => `+=${listWrapper.scrollWidth}`, // 스크롤 길이 = 컨텐츠 너비
+				pin: true,
+				scrub: true,
+				// markers: true
+			}
 		});
 
 
-
-		const boxes = document.querySelectorAll(".timeline-section .box2");
-
-		// Timeline 생성
-		const tl = gsap.timeline({ defaults: { duration: 1, ease: "power2.out" } });
-
-		// 순차적으로 아래 → 위로 등장
-		boxes.forEach((box, index) => {
-		tl.to(box, {
-			y: 0,       // 원래 위치로 이동
-			opacity: 1, // 나타나기
-		}, index * 0.3); // index * 0.3초 딜레이로 순차 등장
-		});
+		
 	</script>
 </body>
 
