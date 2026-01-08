@@ -3,24 +3,52 @@
 
 <head>
 	<meta charset="UTF-8" />
-	<meta name="viewport"
-		content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+	<script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
 	<title>GSAP ScrollTrigger Sample</title>
 	<style>
-		body {
-			margin: 0;
-			height: 200vh;
-			font-family: sans-serif;
+		* {
+			margin: 0; padding: 0;
+		}
+		html {
+			font-size:62.5%;
 		}
 
-		section {
-			height: 100vh;
-			display: flex;
-			align-items: center;
-			justify-content: center;
+		body {
+			font-family: sans-serif;
 			background: #111;
-			color: white;
+			color: #fff;
+			font-size: 1.6rem;
+			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
 		}
+
+		.title1 {
+			font-size: 4.0rem;
+		}
+
+		.title2 {
+			font-size: 2.8rem;
+		}
+
+		.title3 {
+			font-size: 2.1rem;
+		}
+
+		
+
+		.t_blue {color: #2997ff;}
+		.t_orange {color: #ff791b;}
+
+		/* PC */
+		@media (min-width: 769px) {
+			body {font-size:1.8rem;}
+			.title1 {font-size:8.0rem;}
+			.title2 {font-size: 5.6rem;}
+			.title3 {font-size: 3.2rem;}
+		}
+
+
 
 		.box {
 			width: 150px;
@@ -40,10 +68,6 @@
 			align-items: center;
 			justify-content: center;
 			font-size: 2rem;
-		}
-
-		.section {
-			/* border-top: 10px solid #fff */
 		}
 
 		.horizontal-section {
@@ -74,42 +98,95 @@
 			font-size: 2rem;
 		}
 
-		.box2 {
-			width: 150px;
-			height: 100px;
-			background: #4ade80;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			color: #111;
-			font-size: 2rem;
-			transform: translateY(50px);
-			/* 초기 아래 위치 */
-			opacity: 0;
-			/* 초기 투명 */
-		}
+
+
+
+		.section3 {height: auto; padding: 100px 0; display: block;text-align: center;}
 	</style>
 </head>
 
 <body>
+	<script>gsap.registerPlugin(ScrollTrigger);</script>
 
-	<section class="timeline-section">
-		<div class="box2">1</div>
-		<div class="box2">2</div>
-		<div class="box2">3</div>
+	<section class="intro">
+		<h2 class="title1">
+			<span data-gsap="intro">W</span>
+			<span data-gsap="intro">P</span>
+		</h2>
+		<p class="detail" data-gsap="intro">Detail</div>
+		<p class="profile t_blue" data-gsap="intro">2026</div>
+	</section>
+	<script>
+		// 로딩되자마자 순차적 애니메이션
+		const introItems = document.querySelectorAll(".intro [data-gsap='intro']");
+
+		// Timeline 생성
+		const tl = gsap.timeline({
+			defaults: {
+				duration: 1, ease: "sine.out"
+			}
+		});
+
+		// 순차적으로 아래 → 위로 등장
+		introItems.forEach((introItem, index) => {
+			tl.to(introItem, {
+				y: 0,       // 원래 위치로 이동
+				opacity: 1, // 나타나기
+			}, index * 0.3); // index * 0.3초 딜레이로 순차 등장
+		});
+	</script>
+	
+	<style>
+		.intro {
+			height: 100vh;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			padding: 0 2.4rem;
+		}
+		.intro .title1 {
+			text-align: center;
+		}
+		.intro .title1 span {
+			display: block;
+		}
+		.intro .detail {
+			margin-top: 2.4rem;
+		}
+		.intro .profile {
+			margin-top: 1.6rem;
+		}
+		.intro [data-gsap='intro'] {
+			transform: translateY(75px);
+			opacity: 0;
+		}
+	</style>
+
+	<div class="section3_wrap">
+		<section class="section3">
+			<p class="b_to_t">아래에서 위로 등장</p>
+			<p class="b_to_t">아래에서 위로 등장</p>
+			<p class="b_to_t">아래에서 위로 등장</p>
+			<p class="b_to_t">아래에서 위로 등장</p>
+		</section>
+	</div>
+
+
+	
+
+
+
+	<section class="project">
+		<div class="project_item">
+			<span class="project_company">Shin</span>
+			<h2 class="title">React Hook</h2>
+			<p class="text left2">함수형 컴포넌트에서 상태와 생명주기 기능을 사용할 수 있도록 도와주는 기능! 기존에는 클래스형 컴포넌트에서만 상태(state)와 생명주기 메서드(componentDidMount, componentDidUpdate 등)를 사용할 수 있었지만, Hook을 활용하면 함수형 컴포넌트에서도 이를 쉽게 구현할 수 있습니다. </p>
+		</div>
 	</section>
 
 
-	<section>
-		<h1>스크롤 내려보세요 ↓</h1>
-	</section>
-
-
-	<section class="section2">
-		<p class="text left2">왼쪽에서 등장</p>
-	</section>
-
-	<section class="section">
+	<section class="section_pin">
 		<div class="text-wrapper">
 			<p class="text left">왼쪽에서 등장</p>
 			<p class="text left">왼쪽에서 등장</p>
@@ -118,6 +195,7 @@
 			<p class="text right">오른쪽에서 등장</p>
 		</div>
 	</section>
+	
 
 	<section class="horizontal-section">
 		<div class="list-wrapper">
@@ -135,28 +213,8 @@
 
 	<div class="spacer">끝</div>
 
-	<script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
-	<script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+
 	<script>
-		gsap.registerPlugin(ScrollTrigger);
-
-		// 로딩되자마자 순차적 애니메이션
-		const boxes = document.querySelectorAll(".timeline-section .box2");
-
-		// Timeline 생성
-		const tl = gsap.timeline({
-			defaults: {
-				duration: 1, ease: "power2.out"
-			}
-		});
-
-		// 순차적으로 아래 → 위로 등장
-		boxes.forEach((box, index) => {
-			tl.to(box, {
-				y: 0,       // 원래 위치로 이동
-				opacity: 1, // 나타나기
-			}, index * 0.3); // index * 0.3초 딜레이로 순차 등장
-		});
 
 
 
@@ -176,6 +234,34 @@
 		});
 
 
+
+		ScrollTrigger.create({
+			trigger: '.section3_wrap',
+			start: "top top",
+			// end: "+=100%",
+			end: "bottom top",
+			pin: true,
+			pinSpacing: true,
+			//markers: true
+		});
+
+		const bToT = document.querySelectorAll(".b_to_t");
+		bToT.forEach(el => {
+			gsap.fromTo(el,
+				{ y: 300, opacity: 0 },
+				{
+					y: 0,
+					opacity: 1,
+					scrollTrigger: {
+						trigger: '.section3', // 각 요소 기준으로
+						start: "top 50%",
+						end: "center 20%",
+						scrub: true,
+						markers: true
+					}
+				}
+			);
+		});
 		
 		// 단독
 		gsap.fromTo('.left2',
@@ -195,7 +281,7 @@
 		);
 
 
-		gsap.utils.toArray(".section").forEach(section => {
+		gsap.utils.toArray(".section_pin").forEach(section => {
 			// 1️⃣ section 전체 pin
 			ScrollTrigger.create({
 				trigger: section,
@@ -203,7 +289,7 @@
 				end: "+=100%",
 				pin: true,
 				pinSpacing: true,
-				markers: true
+				//markers: true
 			});
 
 			// 2️⃣ 내부 텍스트 등장 애니메이션
@@ -221,7 +307,7 @@
 						opacity: 1,
 						scrollTrigger: {
 							trigger: el, // 각 요소 기준으로
-							start: "top 90%",
+							start: "top 60%",
 							end: "bottom top",
 							scrub: true,
 							// markers: true
@@ -257,7 +343,7 @@
 						start: "top center",
 						end: "bottom top",
 						scrub: true,
-						markers: true
+						//markers: true
 					}
 				}
 			);
