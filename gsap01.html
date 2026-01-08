@@ -57,20 +57,25 @@
 		.t_blue {color: #2997ff;}
 		.t_orange {color: #ff791b;}
 
-		[data-ani='bTot'] {
+		[data-tl='bTot'] {
 			transform: translateY(7.5rem);
 			opacity: 0;
 		}
-		[data-ani='tTob'] {
+		[data-tl='tTob'] {
 			transform: translateY(-7.5rem);
 			opacity: 0;
 		}
-		[data-ani='lTor'] {
+		[data-tl='lTor'] {
 			transform: translateX(-5.0rem);
 			opacity: 0;
 		}
-		[data-ani='rTol'] {
+		[data-tl='rTol'] {
 			transform: translateX(5.0rem);
+			opacity: 0;
+		}
+
+		[data-ani='bTot'] {
+			transform: translateY(7.5rem);
 			opacity: 0;
 		}
 
@@ -142,11 +147,11 @@
 
 	<section class="intro">
 		<h2 class="title1">
-			<span data-ani="bTot" data-delay="1">W</span>
-			<span data-ani="bTot" data-delay="2">P</span>
+			<span data-tl="bTot" data-delay="1">W</span>
+			<span data-tl="bTot" data-delay="2">P</span>
 		</h2>
-		<p class="detail" data-ani="tTob" data-delay="3">Detail</div>
-		<p class="profile t_blue" data-ani="lTor" data-delay="4">2026</div>
+		<p class="detail" data-tl="tTob" data-delay="3">Detail</div>
+		<p class="profile t_blue" data-tl="lTor" data-delay="4">2026</div>
 	</section>
 
 	
@@ -174,15 +179,15 @@
 
 
 	<section class="project">
-		<h2 class="title1 text-item">Project</h2>
+		<h2 class="title1" data-ani="bTot">Project</h2>
 		<ul class="project_group">
-			<li class="project_item text-item">
-				<p class="t_orange text-item">2026</p>
-				<h2 class="title2 mgt0">React</h2>
-				<h3 class="title3">Hook1</h3>
-				<p class="text">함수형 컴포넌트에서 상태와 생명주기 기능을 사용할 수 있도록 도와주는 기능! 기존에는 클래스형 컴포넌트에서만 상태(state)와 생명주기 메서드(componentDidMount, componentDidUpdate 등)를 사용할 수 있었지만, Hook을 활용하면 함수형 컴포넌트에서도 이를 쉽게 구현할 수 있습니다. </p>
-				<h3 class="title3">Hook2</h3>
-				<p class="text">componentDidMount, componentDidUpdate 를 사용할 수 있었지만, Hook을 활용하면 함수형 컴포넌트에서도 이를 쉽게 구현할 수 있습니다. </p>
+			<li class="project_item">
+				<p class="t_orange" data-ani="bTot">2026</p>
+				<h2 class="title2 mgt0" data-ani="bTot">React</h2>
+				<h3 class="title3" data-ani="bTot">Hook1</h3>
+				<p class="text" data-ani="bTot">함수형 컴포넌트에서 상태와 생명주기 기능을 사용할 수 있도록 도와주는 기능! 기존에는 클래스형 컴포넌트에서만 상태(state)와 생명주기 메서드(componentDidMount, componentDidUpdate 등)를 사용할 수 있었지만, Hook을 활용하면 함수형 컴포넌트에서도 이를 쉽게 구현할 수 있습니다. </p>
+				<h3 class="title3" data-ani="bTot">Hook2</h3>
+				<p class="text" data-ani="bTot">componentDidMount, componentDidUpdate 를 사용할 수 있었지만, Hook을 활용하면 함수형 컴포넌트에서도 이를 쉽게 구현할 수 있습니다. </p>
 			</li>
 		</ul>
 	</section>
@@ -194,23 +199,34 @@
 	</style>
 
 	<script>
-		gsap.fromTo(
-			".text-item",
-			{ y: 50, opacity: 0 },
-			{
-				y: 0,
-				opacity: 1,
-				ease: "none",
-				stagger: 0.1,
-				scrollTrigger: {
-					trigger: ".project",
-					start: "top 75%",
-					end: "top 55%",
-					scrub: true,
-					//markers: true,
-				}
+		gsap.to("[data-ani='bTot']", {
+			y: 0,
+			opacity: 1,
+			duration: 0.8,
+			ease: "power3.out",
+			stagger: 0.15,
+			scrollTrigger: {
+				trigger: ".project",
+				start: "top 75%",   // ⭐ 모바일 기준 최적
+				end: "bottom top",     // 트리거 끝 지점
+				// toggleActions: "play none none none",
+				markers: true
 			}
-		);
+		});
+
+
+		/* gsap.from(".text-item", {
+			y: 40,                 // 아래에서 위로
+			opacity: 0,
+			duration: 0.8,
+			ease: "power3.out",
+			stagger: 0.15,
+			scrollTrigger: {
+				trigger: ".text-section",
+				start: "top 75%",   // ⭐ 모바일 기준 최적
+				toggleActions: "play none none none"
+			}
+		}); */
 	</script>
 
 	
@@ -262,10 +278,10 @@
 
 	<script>
 		// 로딩되자마자 순차적 애니메이션
-		const bTot = document.querySelectorAll("[data-ani='bTot']");
-		const tTob = document.querySelectorAll("[data-ani='tTob']");
-		const lTor = document.querySelectorAll("[data-ani='lTor']");
-		const rTol = document.querySelectorAll("[data-ani='rTol']");
+		const bTot = document.querySelectorAll("[data-tl='bTot']");
+		const tTob = document.querySelectorAll("[data-tl='tTob']");
+		const lTor = document.querySelectorAll("[data-tl='lTor']");
+		const rTol = document.querySelectorAll("[data-tl='rTol']");
 
 		// Timeline 생성
 		const tl = gsap.timeline({
