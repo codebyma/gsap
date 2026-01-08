@@ -11,6 +11,7 @@
 		* {
 			margin: 0; padding: 0;
 		}
+		ol,ul,li {list-style: none;}
 		html {
 			font-size:62.5%;
 		}
@@ -35,10 +36,31 @@
 			font-size: 2.1rem;
 		}
 
+		section {
+			padding: 0 2.4rem;
+		}
+
 		
 
 		.t_blue {color: #2997ff;}
 		.t_orange {color: #ff791b;}
+
+		[data-ani='bTot'] {
+			transform: translateY(7.5rem);
+			opacity: 0;
+		}
+		[data-ani='tTob'] {
+			transform: translateY(-7.5rem);
+			opacity: 0;
+		}
+		[data-ani='lTor'] {
+			transform: translateX(-5.0rem);
+			opacity: 0;
+		}
+		[data-ani='rTol'] {
+			transform: translateX(5.0rem);
+			opacity: 0;
+		}
 
 		/* PC */
 		@media (min-width: 769px) {
@@ -47,6 +69,9 @@
 			.title2 {font-size: 5.6rem;}
 			.title3 {font-size: 3.2rem;}
 		}
+
+
+
 
 
 
@@ -110,31 +135,13 @@
 
 	<section class="intro">
 		<h2 class="title1">
-			<span data-gsap="intro">W</span>
-			<span data-gsap="intro">P</span>
+			<span data-ani="bTot" data-delay="1">W</span>
+			<span data-ani="bTot" data-delay="2">P</span>
 		</h2>
-		<p class="detail" data-gsap="intro">Detail</div>
-		<p class="profile t_blue" data-gsap="intro">2026</div>
+		<p class="detail" data-ani="tTob" data-delay="3">Detail</div>
+		<p class="profile t_blue" data-ani="lTor" data-delay="4">2026</div>
 	</section>
-	<script>
-		// 로딩되자마자 순차적 애니메이션
-		const introItems = document.querySelectorAll(".intro [data-gsap='intro']");
 
-		// Timeline 생성
-		const tl = gsap.timeline({
-			defaults: {
-				duration: 1, ease: "sine.out"
-			}
-		});
-
-		// 순차적으로 아래 → 위로 등장
-		introItems.forEach((introItem, index) => {
-			tl.to(introItem, {
-				y: 0,       // 원래 위치로 이동
-				opacity: 1, // 나타나기
-			}, index * 0.3); // index * 0.3초 딜레이로 순차 등장
-		});
-	</script>
 	
 	<style>
 		.intro {
@@ -143,7 +150,6 @@
 			flex-direction: column;
 			justify-content: center;
 			align-items: center;
-			padding: 0 2.4rem;
 		}
 		.intro .title1 {
 			text-align: center;
@@ -157,11 +163,29 @@
 		.intro .profile {
 			margin-top: 1.6rem;
 		}
-		.intro [data-gsap='intro'] {
-			transform: translateY(75px);
-			opacity: 0;
+		
+	</style>
+
+
+	<section class="project">
+		<p class="t_orange">Paa</p>
+		<h2 class="title1">P</h2>
+		<ul class="project_group">
+			<li class="project_item">
+				<span class="project_company">Shin</span>
+				<h2 class="title">React Hook</h2>
+				<p class="text left2">함수형 컴포넌트에서 상태와 생명주기 기능을 사용할 수 있도록 도와주는 기능! 기존에는 클래스형 컴포넌트에서만 상태(state)와 생명주기 메서드(componentDidMount, componentDidUpdate 등)를 사용할 수 있었지만, Hook을 활용하면 함수형 컴포넌트에서도 이를 쉽게 구현할 수 있습니다. </p>
+			</li>
+		</ul>
+	</section>
+
+	<style>
+		.project_group {
+			margin-top: 4.0rem;
 		}
 	</style>
+
+	
 
 	<div class="section3_wrap">
 		<section class="section3">
@@ -177,13 +201,7 @@
 
 
 
-	<section class="project">
-		<div class="project_item">
-			<span class="project_company">Shin</span>
-			<h2 class="title">React Hook</h2>
-			<p class="text left2">함수형 컴포넌트에서 상태와 생명주기 기능을 사용할 수 있도록 도와주는 기능! 기존에는 클래스형 컴포넌트에서만 상태(state)와 생명주기 메서드(componentDidMount, componentDidUpdate 등)를 사용할 수 있었지만, Hook을 활용하면 함수형 컴포넌트에서도 이를 쉽게 구현할 수 있습니다. </p>
-		</div>
-	</section>
+
 
 
 	<section class="section_pin">
@@ -215,10 +233,58 @@
 
 
 	<script>
+		// 로딩되자마자 순차적 애니메이션
+		const bTot = document.querySelectorAll("[data-ani='bTot']");
+		const tTob = document.querySelectorAll("[data-ani='tTob']");
+		const lTor = document.querySelectorAll("[data-ani='lTor']");
+		const rTol = document.querySelectorAll("[data-ani='rTol']");
+
+		// Timeline 생성
+		const tl = gsap.timeline({
+			defaults: {
+				duration: 1, ease: "sine.out"
+			}
+		});
+
+		// 순차적으로 아래 → 위로 등장
+		bTot.forEach((item) => {
+			tl.to(item, {
+				y: 0,       // 원래 위치로 이동
+				opacity: 1, // 나타나기
+			}, item.dataset.delay  / 10); // 딜레이 세팅
+		});
+
+		// 순차적으로 위 → 아래로 등장
+		tTob.forEach((item) => {
+			tl.to(item, {
+				y: 0,       // 원래 위치로 이동
+				opacity: 1, // 나타나기
+			}, item.dataset.delay  / 10); // 딜레이 세팅
+		});
+
+		// 순차적으로 왼쪽 → 오른쪽으로 등장
+		lTor.forEach((item) => {
+			tl.to(item, {
+				x: 0,       // 원래 위치로 이동
+				opacity: 1, // 나타나기
+			}, item.dataset.delay  / 10); // 딜레이 세팅
+		});
+
+		// 순차적으로 오른쪽 → 왼쪽으로 등장
+		rTol.forEach((item) => {
+			tl.to(item, {
+				x: 0,       // 원래 위치로 이동
+				opacity: 1, // 나타나기
+			}, item.dataset.delay  / 10); // 딜레이 세팅
+		});
 
 
 
 
+
+
+
+		
 		gsap.to(".box", {
 			x: 400,
 			rotation: 360,
