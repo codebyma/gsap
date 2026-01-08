@@ -74,11 +74,6 @@
 			opacity: 0;
 		}
 
-		[data-ani='bTot'] {
-			transform: translateY(7.5rem);
-			opacity: 0;
-		}
-
 		/* PC */
 		@media (min-width: 769px) {
 			body {font-size:1.8rem;}
@@ -199,34 +194,23 @@
 	</style>
 
 	<script>
-		gsap.to("[data-ani='bTot']", {
-			y: 0,
-			opacity: 1,
-			duration: 0.8,
-			ease: "power3.out",
-			stagger: 0.15,
-			scrollTrigger: {
-				trigger: ".project",
-				start: "top 75%",   // ⭐ 모바일 기준 최적
-				end: "bottom top",     // 트리거 끝 지점
-				// toggleActions: "play none none none",
-				markers: true
+		gsap.fromTo(
+			"[data-ani='bTot']",
+			{ y: 50, opacity: 0 },
+			{
+				y: 0,
+				opacity: 1,
+				ease: "none",
+				stagger: 0.1,
+				scrollTrigger: {
+					trigger: ".project",
+					start: "top 75%",
+					end: "top 55%",
+					scrub: true,
+					//markers: true,
+				}
 			}
-		});
-
-
-		/* gsap.from(".text-item", {
-			y: 40,                 // 아래에서 위로
-			opacity: 0,
-			duration: 0.8,
-			ease: "power3.out",
-			stagger: 0.15,
-			scrollTrigger: {
-				trigger: ".text-section",
-				start: "top 75%",   // ⭐ 모바일 기준 최적
-				toggleActions: "play none none none"
-			}
-		}); */
+		);
 	</script>
 
 	
