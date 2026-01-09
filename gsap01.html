@@ -192,9 +192,11 @@
 
 
 	<section class="project">
-		<p class="t_orange" data-ani="bTot">Portfolio</p>
-		<h2 class="title1 mgt0" data-ani="bTot">포트폴리오</h2>
-		<ul class="project_group">
+		<div data-ani>
+			<p class="t_orange" data-ani="bTot">Portfolio</p>
+			<h2 class="title1 mgt0" data-ani="bTot">포트폴리오</h2>
+		</div>
+		<ul class="project_group" data-ani>
 			<li class="project_item">
 				<h2 class="title2" data-ani="bTot">
 					React
@@ -205,7 +207,7 @@
 				<h3 class="title3" data-ani="bTot">Hook2</h3>
 				<p data-ani="bTot">componentDidMount, componentDidUpdate 를 사용할 수 있었지만, Hook을 활용하면 함수형 컴포넌트에서도 이를 쉽게 구현할 수 있습니다. </p>
 			</li>
-			<li class="project_item">
+			<li class="project_item" data-ani>
 				<h2 class="title2" data-ani="bTot">
 					React
 					<small class="t_blue">(2026)</small>
@@ -240,23 +242,25 @@
 	</style>
 
 	<script>
-		gsap.fromTo(
-			"[data-ani='bTot']",
-			{ y: 50, opacity: 0 },
-			{
-				y: 0,
-				opacity: 1,
-				ease: "none",
-				stagger: 0.1,
-				scrollTrigger: {
-					trigger: ".project",
-					start: "top 70%",
-					end: "top 30%",
-					scrub: true,
-					//markers: true,
+		document.querySelectorAll("[data-ani]").forEach((item) => {
+			gsap.fromTo(
+				item.querySelectorAll("[data-ani='bTot']"),
+				{ y: 50, opacity: 0 },
+				{
+					y: 0,
+					opacity: 1,
+					ease: "none",
+					stagger: 0.1,
+					scrollTrigger: {
+						trigger: item,
+						start: "top 70%",
+						end: "top 30%",
+						scrub: true,
+						//markers: true,
+					}
 				}
-			}
-		);
+			);
+		});
 	</script>
 
 	
