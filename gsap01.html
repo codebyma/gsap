@@ -264,7 +264,7 @@
 	</script>
 
 
-	<section class="skills">
+	<!-- <section class="skills">
   <h2>SKILLS</h2>
 
   <div class="skill-group">
@@ -350,7 +350,112 @@ gsap.utils.toArray(".skill-group").forEach(group => {
 });
 
 
-	</script>
+	</script> -->
+
+	<section class="skills">
+  <h2>SKILLS</h2>
+
+  <div class="skill-group">
+    <h3>MARKUP</h3>
+    <ul class="skill-list">
+      <li class="skill is-featured" data-percent="90">
+        <span class="name">HTML5</span>
+        <span class="percent">90%</span>
+        <div class="bar"><span></span></div>
+      </li>
+
+      <li class="skill is-featured" data-percent="85">
+        <span class="name">CSS3</span>
+        <span class="percent">85%</span>
+        <div class="bar"><span></span></div>
+      </li>
+
+      <li class="skill">SCSS</li>
+      <li class="skill">Responsive</li>
+    </ul>
+  </div>
+</section>
+
+<style>
+	.skill {
+  position: relative;
+  padding: 18px 20px;
+  background: #1a1a1a;
+  border-radius: 12px;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.skill.is-featured {
+  padding-bottom: 28px;
+}
+
+.skill .name {
+  font-weight: 500;
+}
+
+.skill .percent {
+  float: right;
+  font-size: 13px;
+  color: #888;
+}
+
+.bar {
+  margin-top: 10px;
+  height: 4px;
+  background: #333;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.bar span {
+  display: block;
+  width: 0;
+  height: 100%;
+  background: #4fd1c5;
+}
+
+</style>
+
+<script>
+	// gsap.registerPlugin(ScrollTrigger);
+
+gsap.utils.toArray(".skill-group").forEach(group => {
+  const items = group.querySelectorAll(".skill");
+
+  // 기본 등장 모션
+  gsap.to(items, {
+    scrollTrigger: {
+      trigger: group,
+      start: "top 80%",
+    },
+    opacity: 1,
+    y: 0,
+    duration: 0.6,
+    stagger: 0.08,
+    ease: "power2.out",
+  });
+
+  // 퍼센트 바 애니메이션
+  group.querySelectorAll(".is-featured").forEach(skill => {
+    const percent = skill.dataset.percent;
+    const bar = skill.querySelector(".bar span");
+
+    gsap.to(bar, {
+      scrollTrigger: {
+        trigger: skill,
+        start: "top 85%",
+      },
+      width: percent + "%",
+      duration: 1,
+      ease: "power2.out",
+      delay: 0.2,
+    });
+  });
+});
+
+</script>
+
 
 
 	
