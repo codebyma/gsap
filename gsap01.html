@@ -3,17 +3,25 @@
 
 <head>
 	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
 	<script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
 	<title>GSAP ScrollTrigger Sample</title>
 	<style>
 		* {
-			margin: 0; padding: 0;
+			margin: 0;
+			padding: 0;
 		}
-		ol,ul,li {list-style: none;}
+
+		ol,
+		ul,
+		li {
+			list-style: none;
+		}
+
 		html {
-			font-size:10px;
+			font-size: 10px;
 		}
 
 		body {
@@ -25,7 +33,9 @@
 			line-height: 1.56;
 		}
 
-		.mgt0 {margin-top: 0 !important;}
+		.mgt0 {
+			margin-top: 0 !important;
+		}
 
 		.title1 {
 			margin-top: 6.0rem;
@@ -40,8 +50,9 @@
 			font-size: 2.8rem;
 			color: #fff;
 		}
-		.title1 + .title2 {
-			margin-top:2.4rem;
+
+		.title1+.title2 {
+			margin-top: 2.4rem;
 		}
 
 		.title3 {
@@ -51,8 +62,9 @@
 			color: #fff;
 			font-weight: 500;
 		}
-		.title2 + .title3 {
-			margin-top:1.2rem;
+
+		.title2+.title3 {
+			margin-top: 1.2rem;
 		}
 
 		section {
@@ -60,27 +72,43 @@
 			padding: 0 2.4rem;
 		}
 
-		
 
-		.t_blue {color: #2997ff;}
-		.t_orange {color: #ff791b;}
 
-		.fw400{font-weight: 400 !important;}
-		.fw500{font-weight: 500 !important;}
-		.fw700{font-weight: 700 !important;}
+		.t_blue {
+			color: #2997ff;
+		}
+
+		.t_orange {
+			color: #ff791b;
+		}
+
+		.fw400 {
+			font-weight: 400 !important;
+		}
+
+		.fw500 {
+			font-weight: 500 !important;
+		}
+
+		.fw700 {
+			font-weight: 700 !important;
+		}
 
 		[data-tl='bTot'] {
 			transform: translateY(4.0rem);
 			opacity: 0;
 		}
+
 		[data-tl='tTob'] {
 			transform: translateY(-4.0rem);
 			opacity: 0;
 		}
+
 		[data-tl='lTor'] {
 			transform: translateX(-4.0rem);
 			opacity: 0;
 		}
+
 		[data-tl='rTol'] {
 			transform: translateX(4.0rem);
 			opacity: 0;
@@ -88,13 +116,14 @@
 
 		/* PC */
 		@media (min-width: 769px) {
+
 			/* body {font-size:1.8rem;}
 			section{max-width:1100px;margin:0 auto;}
 			.title1 {margin-top: 8.0rem;font-size: 6.8rem;}
 			.title2 {margin-top: 5.2rem;font-size: 5.2rem;}
 			.title3 {margin-top: 4.0rem;font-size: 2.8rem;} */
 			html {
-				font-size:12px;
+				font-size: 12px;
 			}
 		}
 
@@ -149,7 +178,12 @@
 
 
 
-		.section3 {height: auto; padding: 100px 0; display: block;text-align: center;}
+		.section3 {
+			height: auto;
+			padding: 100px 0;
+			display: block;
+			text-align: center;
+		}
 	</style>
 </head>
 
@@ -165,7 +199,7 @@
 		<p class="profile t_blue" data-tl="tTob" data-delay="4">2026</div>
 	</section>
 
-	
+
 	<style>
 		.intro {
 			height: 100vh;
@@ -174,17 +208,21 @@
 			justify-content: center;
 			align-items: center;
 		}
+
 		.intro .title1 {
 			text-align: center;
 			font-size: 6.0rem;
 			line-height: 1.2;
 		}
+
 		.intro .title1 span {
 			display: block;
 		}
+
 		.intro .detail {
 			margin-top: 2.4rem;
 		}
+
 		.intro .profile {
 			margin-top: 1.6rem;
 		}
@@ -203,9 +241,12 @@
 					<small class="t_blue">(2026)</small>
 				</h2>
 				<h3 class="title3" data-ani="bTot">Hook1</h3>
-				<p data-ani="bTot">함수형 컴포넌트에서 상태와 생명주기 기능을 사용할 수 있도록 도와주는 기능! 기존에는 클래스형 컴포넌트에서만 상태(state)와 생명주기 메서드(componentDidMount, componentDidUpdate 등)를 사용할 수 있었지만, Hook을 활용하면 함수형 컴포넌트에서도 이를 쉽게 구현할 수 있습니다. </p>
+				<p data-ani="bTot">함수형 컴포넌트에서 상태와 생명주기 기능을 사용할 수 있도록 도와주는 기능! 기존에는 클래스형 컴포넌트에서만 상태(state)와 생명주기
+					메서드(componentDidMount, componentDidUpdate 등)를 사용할 수 있었지만, Hook을 활용하면 함수형 컴포넌트에서도 이를 쉽게 구현할 수 있습니다.
+				</p>
 				<h3 class="title3" data-ani="bTot">Hook2</h3>
-				<p data-ani="bTot">componentDidMount, componentDidUpdate 를 사용할 수 있었지만, Hook을 활용하면 함수형 컴포넌트에서도 이를 쉽게 구현할 수 있습니다. </p>
+				<p data-ani="bTot">componentDidMount, componentDidUpdate 를 사용할 수 있었지만, Hook을 활용하면 함수형 컴포넌트에서도 이를 쉽게 구현할
+					수 있습니다. </p>
 			</li>
 			<li class="project_item" data-ani>
 				<h2 class="title2" data-ani="bTot">
@@ -213,9 +254,12 @@
 					<small class="t_blue">(2026)</small>
 				</h2>
 				<h3 class="title3" data-ani="bTot">Hook1</h3>
-				<p data-ani="bTot">함수형 컴포넌트에서 상태와 생명주기 기능을 사용할 수 있도록 도와주는 기능! 기존에는 클래스형 컴포넌트에서만 상태(state)와 생명주기 메서드(componentDidMount, componentDidUpdate 등)를 사용할 수 있었지만, Hook을 활용하면 함수형 컴포넌트에서도 이를 쉽게 구현할 수 있습니다. </p>
+				<p data-ani="bTot">함수형 컴포넌트에서 상태와 생명주기 기능을 사용할 수 있도록 도와주는 기능! 기존에는 클래스형 컴포넌트에서만 상태(state)와 생명주기
+					메서드(componentDidMount, componentDidUpdate 등)를 사용할 수 있었지만, Hook을 활용하면 함수형 컴포넌트에서도 이를 쉽게 구현할 수 있습니다.
+				</p>
 				<h3 class="title3" data-ani="bTot">Hook2</h3>
-				<p data-ani="bTot">componentDidMount, componentDidUpdate 를 사용할 수 있었지만, Hook을 활용하면 함수형 컴포넌트에서도 이를 쉽게 구현할 수 있습니다. </p>
+				<p data-ani="bTot">componentDidMount, componentDidUpdate 를 사용할 수 있었지만, Hook을 활용하면 함수형 컴포넌트에서도 이를 쉽게 구현할
+					수 있습니다. </p>
 			</li>
 		</ul>
 	</section>
@@ -225,13 +269,13 @@
 			margin-top: 2.4rem;
 		}
 
-		.project_item + .project_item {
-			margin-top:4.0rem;
-			padding-top:4.0rem;
-			border-top:1px dashed #464646;
+		.project_item+.project_item {
+			margin-top: 4.0rem;
+			padding-top: 4.0rem;
+			border-top: 1px dashed #464646;
 		}
 
-		.project_item + .project_item .title2 {
+		.project_item+.project_item .title2 {
 			margin-top: 0;
 		}
 
@@ -353,112 +397,143 @@ gsap.utils.toArray(".skill-group").forEach(group => {
 	</script> -->
 
 	<section class="skills">
-  <h2>SKILLS</h2>
+		<h2>SKILLS</h2>
 
-  <div class="skill-group">
-    <h3>MARKUP</h3>
-    <ul class="skill-list">
-      <li class="skill is-featured" data-percent="90">
-        <span class="name">HTML5</span>
-        <span class="percent">90%</span>
-        <div class="bar"><span></span></div>
-      </li>
+		<div class="skill-group">
+			<h3>MARKUP</h3>
+			<ul class="skill-list">
+				<li class="skill is-featured" data-percent="90">
+					<span class="name">HTML5</span>
+					<span class="percent">90%</span>
+					<div class="bar"><span></span></div>
+				</li>
 
-      <li class="skill is-featured" data-percent="85">
-        <span class="name">CSS3</span>
-        <span class="percent">85%</span>
-        <div class="bar"><span></span></div>
-      </li>
+				<li class="skill is-featured" data-percent="85">
+					<span class="name">CSS3</span>
+					<span class="percent">85%</span>
+					<div class="bar"><span></span></div>
+				</li>
 
-      <li class="skill">SCSS</li>
-      <li class="skill">Responsive</li>
-    </ul>
-  </div>
-</section>
+				<li class="skill">SCSS</li>
+				<li class="skill">Responsive</li>
+			</ul>
+			<h3>INTERACTION</h3>
+			<ul class="skill-list">
+				<li class="skill is-featured" data-percent="90">
+					<span class="name">HTML5</span>
+					<span class="percent">90%</span>
+					<div class="bar"><span></span></div>
+				</li>
 
-<style>
-	.skill {
-  position: relative;
-  padding: 18px 20px;
-  background: #1a1a1a;
-  border-radius: 12px;
-  opacity: 0;
-  transform: translateY(30px);
-}
+				<li class="skill is-featured" data-percent="85">
+					<span class="name">CSS3</span>
+					<span class="percent">85%</span>
+					<div class="bar"><span></span></div>
+				</li>
 
-.skill.is-featured {
-  padding-bottom: 28px;
-}
+				<li class="skill">SCSS</li>
+				<li class="skill">Responsive</li>
+			</ul>
+			<h3>TOOLS</h3>
+			<ul class="skill-list">
+				<li class="skill is-featured" data-percent="90">
+					<span class="name">HTML5</span>
+					<span class="percent">90%</span>
+					<div class="bar"><span></span></div>
+				</li>
 
-.skill .name {
-  font-weight: 500;
-}
+				<li class="skill is-featured" data-percent="85">
+					<span class="name">CSS3</span>
+					<span class="percent">85%</span>
+					<div class="bar"><span></span></div>
+				</li>
 
-.skill .percent {
-  float: right;
-  font-size: 13px;
-  color: #888;
-}
+				<li class="skill">SCSS</li>
+				<li class="skill">Responsive</li>
+			</ul>
+		</div>
+	</section>
 
-.bar {
-  margin-top: 10px;
-  height: 4px;
-  background: #333;
-  border-radius: 2px;
-  overflow: hidden;
-}
+	<style>
+		.skill {
+			position: relative;
+			padding: 18px 20px;
+			background: #1a1a1a;
+			border-radius: 12px;
+			opacity: 0;
+			transform: translateY(30px);
+		}
 
-.bar span {
-  display: block;
-  width: 0;
-  height: 100%;
-  background: #4fd1c5;
-}
+		.skill.is-featured {
+			padding-bottom: 28px;
+		}
 
-</style>
+		.skill .name {
+			font-weight: 500;
+		}
 
-<script>
-	// gsap.registerPlugin(ScrollTrigger);
+		.skill .percent {
+			float: right;
+			font-size: 13px;
+			color: #888;
+		}
 
-gsap.utils.toArray(".skill-group").forEach(group => {
-  const items = group.querySelectorAll(".skill");
+		.bar {
+			margin-top: 10px;
+			height: 4px;
+			background: #333;
+			border-radius: 2px;
+			overflow: hidden;
+		}
 
-  // 기본 등장 모션
-  gsap.to(items, {
-    scrollTrigger: {
-      trigger: group,
-      start: "top 80%",
-    },
-    opacity: 1,
-    y: 0,
-    duration: 0.6,
-    stagger: 0.08,
-    ease: "power2.out",
-  });
+		.bar span {
+			display: block;
+			width: 0;
+			height: 100%;
+			background: #4fd1c5;
+		}
+	</style>
 
-  // 퍼센트 바 애니메이션
-  group.querySelectorAll(".is-featured").forEach(skill => {
-    const percent = skill.dataset.percent;
-    const bar = skill.querySelector(".bar span");
+	<script>
+		gsap.utils.toArray(".skill-group").forEach(group => {
+			const items = group.querySelectorAll(".skill");
 
-    gsap.to(bar, {
-      scrollTrigger: {
-        trigger: skill,
-        start: "top 85%",
-      },
-      width: percent + "%",
-      duration: 1,
-      ease: "power2.out",
-      delay: 0.2,
-    });
-  });
-});
+			// 기본 등장 모션
+			gsap.to(items, {
+				scrollTrigger: {
+					trigger: group,
+					start: "top 80%",
+				},
+				opacity: 1,
+				y: 0,
+				duration: 0.6,
+				stagger: 0.08,
+				ease: "power2.out",
+			});
 
-</script>
+			// 퍼센트 바 애니메이션
+			group.querySelectorAll(".is-featured").forEach(skill => {
+				const percent = skill.dataset.percent;
+				const bar = skill.querySelector(".bar span");
+
+				gsap.to(bar, {
+					scrollTrigger: {
+						trigger: skill,
+						start: "top 85%",
+					},
+					width: percent + "%",
+					duration: 1,
+					ease: "power2.out",
+					delay: 0.2,
+				});
+			});
+		});
+
+	</script>
 
 
 
-	
+
 
 	<div class="section3_wrap">
 		<section class="section3">
@@ -470,7 +545,7 @@ gsap.utils.toArray(".skill-group").forEach(group => {
 	</div>
 
 
-	
+
 
 
 
@@ -486,7 +561,7 @@ gsap.utils.toArray(".skill-group").forEach(group => {
 			<p class="text right">오른쪽에서 등장</p>
 		</div>
 	</section>
-	
+
 
 	<section class="horizontal-section">
 		<div class="list-wrapper">
@@ -524,7 +599,7 @@ gsap.utils.toArray(".skill-group").forEach(group => {
 			tl.to(item, {
 				y: 0,       // 원래 위치로 이동
 				opacity: 1, // 나타나기
-			}, item.dataset.delay  / 10); // 딜레이 세팅
+			}, item.dataset.delay / 10); // 딜레이 세팅
 		});
 
 		// 순차적으로 위 → 아래로 등장
@@ -532,7 +607,7 @@ gsap.utils.toArray(".skill-group").forEach(group => {
 			tl.to(item, {
 				y: 0,       // 원래 위치로 이동
 				opacity: 1, // 나타나기
-			}, item.dataset.delay  / 10); // 딜레이 세팅
+			}, item.dataset.delay / 10); // 딜레이 세팅
 		});
 
 		// 순차적으로 왼쪽 → 오른쪽으로 등장
@@ -540,7 +615,7 @@ gsap.utils.toArray(".skill-group").forEach(group => {
 			tl.to(item, {
 				x: 0,       // 원래 위치로 이동
 				opacity: 1, // 나타나기
-			}, item.dataset.delay  / 10); // 딜레이 세팅
+			}, item.dataset.delay / 10); // 딜레이 세팅
 		});
 
 		// 순차적으로 오른쪽 → 왼쪽으로 등장
@@ -548,7 +623,7 @@ gsap.utils.toArray(".skill-group").forEach(group => {
 			tl.to(item, {
 				x: 0,       // 원래 위치로 이동
 				opacity: 1, // 나타나기
-			}, item.dataset.delay  / 10); // 딜레이 세팅
+			}, item.dataset.delay / 10); // 딜레이 세팅
 		});
 
 
@@ -601,7 +676,7 @@ gsap.utils.toArray(".skill-group").forEach(group => {
 				}
 			);
 		});
-		
+
 		// 단독
 		gsap.fromTo('.left2',
 			{ x: 150, y: 150, opacity: 0 },
@@ -706,7 +781,7 @@ gsap.utils.toArray(".skill-group").forEach(group => {
 		});
 
 
-		
+
 	</script>
 </body>
 
