@@ -587,26 +587,26 @@ gsap.utils.toArray(".skill-group").forEach(group => {
 		.pin2-section {
 			min-height: 100vh;
 			padding: 80px 20px;
-			background: #fff;
 		}
-
+		
 		.pin2-section .text-item {
 			font-size: 20px;
 			font-weight: 500;
 			line-height: 1.5;
 			margin-bottom: 28px;
+			text-align: center;
 		}
 	</style>
 
 
-	<div class="section3_wrap">
+	<!-- <div class="section3_wrap">
 		<section class="section3">
 			<p class="b_to_t">아래에서 위로 등장</p>
 			<p class="b_to_t">아래에서 위로 등장</p>
 			<p class="b_to_t">아래에서 위로 등장</p>
 			<p class="b_to_t">아래에서 위로 등장</p>
 		</section>
-	</div>
+	</div> -->
 
 
 
@@ -616,15 +616,19 @@ gsap.utils.toArray(".skill-group").forEach(group => {
 
 
 
-	<section class="section_pin">
+	<!-- <section class="section_pin">
 		<div class="text-wrapper">
-			<p class="text left">왼쪽에서 등장</p>
-			<p class="text left">왼쪽에서 등장</p>
-			<p class="text left">왼쪽에서 등장</p>
-			<p class="text left">왼쪽에서 등장</p>
+			<p class="text left">아래에서 위로 등장</p>
+			<p class="text left">아래에서 위로 등장</p>
+			<p class="text left">아래에서 위로 등장</p>
+			<p class="text left">아래에서 위로 등장</p>
 			<p class="text right">오른쪽에서 등장</p>
 		</div>
 	</section>
+	<style>
+		.section_pin{height: 100vh;padding-top:200px;text-align: center;}
+		.section_pin .text {margin-top:40px}
+	</style> -->
 
 
 	<section class="horizontal-section">
@@ -637,9 +641,9 @@ gsap.utils.toArray(".skill-group").forEach(group => {
 		</div>
 	</section>
 
-	<section class="trigger">
+	<!-- <section class="trigger">
 		<div class="box"></div>
-	</section>
+	</section> -->
 
 	<div class="spacer">끝</div>
 
@@ -778,9 +782,8 @@ gsap.utils.toArray(".skill-group").forEach(group => {
 			const leftTexts = section.querySelectorAll(".text.left");
 			leftTexts.forEach(el => {
 				gsap.fromTo(el,
-					{ x: -150, y: 100, opacity: 0 },
+					{ y: 100, opacity: 0 },
 					{
-						x: 0,
 						y: 0,
 						opacity: 1,
 						scrollTrigger: {
