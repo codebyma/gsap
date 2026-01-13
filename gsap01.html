@@ -535,6 +535,70 @@ gsap.utils.toArray(".skill-group").forEach(group => {
 
 
 
+
+
+
+
+	<section class="pin2-section">
+		<p class="text-item">이제 스크롤이 시작되면</p>
+		<p class="text-item">바로 반응하지 않고</p>
+		<p class="text-item">조금 여유를 둔 뒤</p>
+		<p class="text-item">자연스럽게 텍스트가</p>
+		<p class="text-item">등장합니다.</p>
+	</section>
+
+
+
+	<script>
+		const section = document.querySelector(".pin2-section");
+
+		const tl2 = gsap.timeline({
+			scrollTrigger: {
+				trigger: section,
+				start: "top top",
+				end: () => "+=" + section.scrollHeight * 0.7,
+				pin: true,
+				scrub: 0.6,
+				anticipatePin: 1,
+				invalidateOnRefresh: true
+			}
+		});
+
+		// ⬇️ 첫 20%는 아무 변화 없는 구간
+		tl2.to({}, { duration: 0.5 });
+
+		// ⬇️ 그 다음부터 텍스트 등장
+		tl2.fromTo(
+			".text-item",
+			{
+				y: 20,
+				opacity: 0
+			},
+			{
+				y: 0,
+				opacity: 1,
+				ease: "none",
+				stagger: 0.2
+			}
+		);
+	</script>
+
+	<style>
+		.pin2-section {
+			min-height: 100vh;
+			padding: 80px 20px;
+			background: #fff;
+		}
+
+		.pin2-section .text-item {
+			font-size: 20px;
+			font-weight: 500;
+			line-height: 1.5;
+			margin-bottom: 28px;
+		}
+	</style>
+
+
 	<div class="section3_wrap">
 		<section class="section3">
 			<p class="b_to_t">아래에서 위로 등장</p>
