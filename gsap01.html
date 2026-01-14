@@ -113,6 +113,9 @@
 			transform: translateX(4.0rem);
 			opacity: 0;
 		}
+		[data-ani="bTot"] {
+			opacity: 0;
+		}
 
 		/* PC */
 		@media (min-width: 769px) {
@@ -288,8 +291,8 @@
 
 	<section class="project">
 		<div data-ani>
-			<p class="t_orange" data-ani="bTot">Portfolio</p>
-			<h2 class="title1 mgt0" data-ani="bTot">포트폴리오</h2>
+			<p class="t_orange" data-ani="bTot">Po</p>
+			<h2 class="title1 mgt0" data-ani="bTot">기술</h2>
 		</div>
 		<ul class="project_group">
 			<li class="project_item" data-ani>
@@ -468,18 +471,18 @@ gsap.utils.toArray(".skill-group").forEach(group => {
 					<div class="bar"><span></span></div>
 				</li>
 
-				<li class="skill is-featured" data-percent="85">
+				<!-- <li class="skill is-featured" data-percent="85">
 					<span class="name">CSS3</span>
 					<span class="percent">85%</span>
 					<div class="bar"><span></span></div>
-				</li>
+				</li> -->
 
 				<li class="skill">SCSS</li>
 				<li class="skill">Responsive</li>
 			</ul>
 			<h3>INTERACTION</h3>
 			<ul class="skill-list">
-				<li class="skill is-featured" data-percent="90">
+				<!-- <li class="skill is-featured" data-percent="90">
 					<span class="name">HTML5</span>
 					<span class="percent">90%</span>
 					<div class="bar"><span></span></div>
@@ -492,11 +495,11 @@ gsap.utils.toArray(".skill-group").forEach(group => {
 				</li>
 
 				<li class="skill">SCSS</li>
-				<li class="skill">Responsive</li>
+				<li class="skill">Responsive</li> -->
 			</ul>
 			<h3>TOOLS</h3>
 			<ul class="skill-list">
-				<li class="skill is-featured" data-percent="90">
+				<!-- <li class="skill is-featured" data-percent="90">
 					<span class="name">HTML5</span>
 					<span class="percent">90%</span>
 					<div class="bar"><span></span></div>
@@ -509,7 +512,7 @@ gsap.utils.toArray(".skill-group").forEach(group => {
 				</li>
 
 				<li class="skill">SCSS</li>
-				<li class="skill">Responsive</li>
+				<li class="skill">Responsive</li> -->
 			</ul>
 		</div>
 	</section>
@@ -730,8 +733,8 @@ gsap.utils.toArray(".skill-group").forEach(group => {
 			//markers: true
 		});
 
-		const bToT = document.querySelectorAll(".b_to_t");
-		bToT.forEach(el => {
+		const bToT2 = document.querySelectorAll(".b_to_t");
+		bToT2.forEach(el => {
 			gsap.fromTo(el,
 				{ y: 300, opacity: 0 },
 				{
