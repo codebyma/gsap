@@ -290,27 +290,7 @@
 		}
 	</style>
 
-	<script>
-		document.querySelectorAll("[data-ani]").forEach((item) => {
-			gsap.fromTo(
-				item.querySelectorAll("[data-ani='bTot']"),
-				{ y: 50, opacity: 0 },
-				{
-					y: 0,
-					opacity: 1,
-					ease: "none",
-					stagger: 0.1,
-					scrollTrigger: {
-						trigger: item,
-						start: "top 70%",
-						end: "top 30%",
-						scrub: true,
-						//markers: true,
-					}
-				}
-			);
-		});
-	</script>
+	
 
 
 	
@@ -405,11 +385,14 @@ gsap.utils.toArray(".skill-group").forEach(group => {
 	</script> -->
 
 	<section class="skills">
-		<h2>SKILLS</h2>
-
+		<div data-ani>
+			<p class="t_orange" data-ani="bTot">SKILLS</p>
+			<h2 class="title1 mgt0" data-ani="bTot">기술</h2>
+		</div>
 		<div class="skill-group">
-			<h3>MARKUP</h3>
-			<ul class="skill-list">
+			<div data-ani>
+			<h3 class="title3" data-ani="bTot">MARKUP</h3>
+			<ul class="skill-list" data-ani="bTot">
 				<li class="skill is-featured" data-percent="90">
 					<span class="name">HTML5</span>
 					<span class="percent">90%</span>
@@ -425,7 +408,9 @@ gsap.utils.toArray(".skill-group").forEach(group => {
 				<li class="skill">SCSS</li>
 				<li class="skill">Responsive</li>
 			</ul>
-			<h3>INTERACTION</h3>
+			</div>
+			
+			<h3 class="title3">INTERACTION</h3>
 			<ul class="skill-list">
 				<!-- <li class="skill is-featured" data-percent="90">
 					<span class="name">HTML5</span>
@@ -442,7 +427,7 @@ gsap.utils.toArray(".skill-group").forEach(group => {
 				<li class="skill">SCSS</li>
 				<li class="skill">Responsive</li> -->
 			</ul>
-			<h3>TOOLS</h3>
+			<h3 class="title3">TOOLS</h3>
 			<ul class="skill-list">
 				<!-- <li class="skill is-featured" data-percent="90">
 					<span class="name">HTML5</span>
@@ -463,6 +448,9 @@ gsap.utils.toArray(".skill-group").forEach(group => {
 	</section>
 
 	<style>
+		.skills {
+			padding-top: 12.0rem
+		}
 		.skill {
 			position: relative;
 			padding: 18px 20px;
@@ -532,7 +520,7 @@ gsap.utils.toArray(".skill-group").forEach(group => {
 					width: percent + "%",
 					duration: 1,
 					ease: "power2.out",
-					delay: 0.2,
+					delay: 1,
 				});
 			});
 		});
@@ -664,7 +652,27 @@ gsap.utils.toArray(".skill-group").forEach(group => {
 	</section> -->
 
 	<!-- <div class="spacer">끝</div> -->
-
+<script>
+		document.querySelectorAll("[data-ani]").forEach((item) => {
+			gsap.fromTo(
+				item.querySelectorAll("[data-ani='bTot']"),
+				{ y: 50, opacity: 0 },
+				{
+					y: 0,
+					opacity: 1,
+					ease: "none",
+					stagger: 0.1,
+					scrollTrigger: {
+						trigger: item,
+						start: "top 70%",
+						end: "top 30%",
+						scrub: true,
+						//markers: true,
+					}
+				}
+			);
+		});
+	</script>
 
 	<script>
 		// 로딩되자마자 순차적 애니메이션
@@ -849,7 +857,7 @@ gsap.utils.toArray(".skill-group").forEach(group => {
 		});
 
 
-		const horizontalSection = document.querySelector(".horizontal-section");
+		/* const horizontalSection = document.querySelector(".horizontal-section");
 		const listWrapper = horizontalSection.querySelector(".list-wrapper");
 
 		gsap.to(listWrapper, {
@@ -863,7 +871,7 @@ gsap.utils.toArray(".skill-group").forEach(group => {
 				scrub: true,
 				// markers: true
 			}
-		});
+		}); */
 
 
 
