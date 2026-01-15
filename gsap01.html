@@ -130,80 +130,7 @@
 			}
 		}
 
-
-
-
-
-
-		.box {
-			width: 150px;
-			height: 150px;
-			background: #4ade80;
-		}
-
-
-		.spacer {
-			height: 100vh;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			font-size: 2rem;
-		}
-
-		.horizontal-section {
-			position: relative;
-			height: 100vh;
-			overflow: hidden;
-			background: #222;
-			color: #fff;
-			display: flex;
-			align-items: center;
-		}
-
-		.list-wrapper {
-			display: flex;
-			width: 500%;
-			/* 아이템 개수에 맞춰 충분히 늘리기 */
-		}
-
-		.item {
-			flex: 0 0 50%;
-			/* 5개 아이템이면 20%씩 */
-			height: 300px;
-			margin: 0 10px;
-			background: #4ade80;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			font-size: 2rem;
-		}
-
-
-
-
-		.section3 {
-			height: auto;
-			padding: 100px 0;
-			display: block;
-			text-align: center;
-		}
-	</style>
-</head>
-
-<body>
-	<script>gsap.registerPlugin(ScrollTrigger);</script>
-
-	<section class="intro">
-		<h2 class="title1">
-			<span data-tl="bTot" data-delay="1">WEB</span>
-			<span data-tl="tTob" data-delay="2">PUBLISHER</span>
-		</h2>
-		<p class="detail t_blue" data-tl="bTot" data-delay="3">완성도를 위해 끊임없이 개선하고<br>문제 해결을 통해 스스로를 단련해온 인재</div>
-		<p class="profile" data-tl="tTob" data-delay="4">AAA</div>
-	</section>
-
-
-	<style>
+		
 		.intro {
 			height: 100vh;
 			display: flex;
@@ -233,7 +160,101 @@
 			margin-top: 0.8rem;
 			font-size:1.6rem;
 		}
+
+		.project_group {
+			margin-top: 2.4rem;
+		}
+
+		.project_item+.project_item {
+			margin-top: 4.0rem;
+			padding-top: 4.0rem;
+			border-top: 1px dashed #464646;
+		}
+
+		.project_item+.project_item .title2 {
+			margin-top: 0;
+		}
+
+		.project .title2 small {
+			font-size: 1.4rem;
+			font-weight: 500;
+		}
+
+		.skills {
+			padding-top: 12.0rem
+		}
+		.skill {
+			position: relative;
+			padding: 18px 20px;
+			background: #1a1a1a;
+			border-radius: 12px;
+			opacity: 0;
+			transform: translateY(30px);
+		}
+
+		.skill.is-featured {
+			padding-bottom: 28px;
+		}
+
+		.skill .name {
+			font-weight: 500;
+		}
+
+		.skill .percent {
+			float: right;
+			font-size: 13px;
+			color: #888;
+		}
+
+		.bar {
+			margin-top: 10px;
+			height: 4px;
+			background: #333;
+			border-radius: 2px;
+			overflow: hidden;
+		}
+
+		.bar span {
+			display: block;
+			width: 0;
+			height: 100%;
+			background: #4fd1c5;
+		}
+
+		.pin-section {
+			min-height: 100vh;
+			display: flex;
+			align-items: center;
+			flex-direction: column;
+			justify-content: center;
+		}
+		
+		.pin-section .text-item {
+			font-weight: 500;
+			line-height: 1.5;
+			text-align: center;
+			font-size:2.0rem;
+		}
+		.pin-section .text-item.t2 {
+			font-size:2.4rem;
+			color: #fff;
+		}
 	</style>
+</head>
+
+<body>
+	<script>gsap.registerPlugin(ScrollTrigger);</script>
+
+	<section class="intro">
+		<h2 class="title1">
+			<span data-tl="bTot" data-delay="1">WEB</span>
+			<span data-tl="tTob" data-delay="2">PUBLISHER</span>
+		</h2>
+		<p class="detail t_blue" data-tl="bTot" data-delay="3">완성도를 위해 끊임없이 개선하고<br>문제 해결을 통해 스스로를 단련해온 인재</div>
+		<p class="profile" data-tl="tTob" data-delay="4">AAA</div>
+	</section>
+
+
 
 
 	<section class="project">
@@ -270,121 +291,6 @@
 			</li>
 		</ul>
 	</section>
-
-	<style>
-		.project_group {
-			margin-top: 2.4rem;
-		}
-
-		.project_item+.project_item {
-			margin-top: 4.0rem;
-			padding-top: 4.0rem;
-			border-top: 1px dashed #464646;
-		}
-
-		.project_item+.project_item .title2 {
-			margin-top: 0;
-		}
-
-		.project .title2 small {
-			font-size: 1.4rem;
-			font-weight: 500;
-		}
-	</style>
-
-	
-
-
-	
-
-
-	<!-- <section class="skills">
-  <h2>SKILLS</h2>
-
-  <div class="skill-group">
-    <h3>MARKUP</h3>
-    <ul class="skill-list">
-      <li class="skill">HTML5</li>
-      <li class="skill">CSS3</li>
-      <li class="skill">SCSS</li>
-      <li class="skill">Responsive</li>
-    </ul>
-  </div>
-
-  <div class="skill-group">
-    <h3>INTERACTION</h3>
-    <ul class="skill-list">
-      <li class="skill">JavaScript</li>
-      <li class="skill">GSAP</li>
-      <li class="skill">Swiper</li>
-    </ul>
-  </div>
-
-  <div class="skill-group">
-    <h3>TOOLS</h3>
-    <ul class="skill-list">
-      <li class="skill">Git</li>
-      <li class="skill">Figma</li>
-      <li class="skill">Zeplin</li>
-    </ul>
-  </div>
-</section>
-
-	<style>
-	.skills {
-  padding: 140px 10%;
-  background: #0f0f0f;
-  color: #fff;
-}
-
-.skill-group {
-  margin-bottom: 80px;
-}
-
-.skill-group h3 {
-  margin-bottom: 24px;
-  font-size: 20px;
-  color: #aaa;
-}
-
-.skill-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  gap: 16px;
-}
-
-.skill {
-  padding: 18px 20px;
-  background: #1a1a1a;
-  border-radius: 12px;
-  opacity: 0;
-  transform: translateY(30px);
-}
-
-
-	</style>
-
-	<script>
-
-
-gsap.utils.toArray(".skill-group").forEach(group => {
-  const items = group.querySelectorAll(".skill");
-
-  gsap.to(items, {
-    scrollTrigger: {
-      trigger: group,
-      start: "top 80%",
-    },
-    opacity: 1,
-    y: 0,
-    duration: 0.6,
-    stagger: 0.1,
-    ease: "power2.out",
-  });
-});
-
-
-	</script> -->
 
 	<section class="skills">
 		<div data-ani>
@@ -449,48 +355,24 @@ gsap.utils.toArray(".skill-group").forEach(group => {
 		</div>
 	</section>
 
-	<style>
-		.skills {
-			padding-top: 12.0rem
-		}
-		.skill {
-			position: relative;
-			padding: 18px 20px;
-			background: #1a1a1a;
-			border-radius: 12px;
-			opacity: 0;
-			transform: translateY(30px);
-		}
 
-		.skill.is-featured {
-			padding-bottom: 28px;
-		}
+	<section class="pin-section">
+		<p class="text-item t2">완성도와 문제 정의부터 </p>
+		<p class="text-item t2">개선까지 책임해온 퍼블리셔로,</p>
+		<p class="text-item" style="margin-top:1.2rem">오랜 실무 경험을 바탕으로</p>
+		<p class="text-item">금융권 프로젝트에서</p>
+		<p class="text-item t_orange" style="margin-top:1.2rem">웹접근성과 공통 UI 가이드를</p>
+		<p class="text-item t_orange">구축 및 운영해왔으며</p>
+		<p class="text-item"style="margin-top:2.4rem">스크립트 이해를 통해 개발과 원활히</p>
+		<p class="text-item t_blue">협업해온 인재</p>
+		<p class="text-item"style="margin-top:4.0rem;">감사합니다.</p>
+		<div class="text-item"style="margin-top:4.0rem;">
+			<button type="button">Vue3 공통 가이드 컴포넌트</button>
+		</div>
+	</section>
+        
 
-		.skill .name {
-			font-weight: 500;
-		}
 
-		.skill .percent {
-			float: right;
-			font-size: 13px;
-			color: #888;
-		}
-
-		.bar {
-			margin-top: 10px;
-			height: 4px;
-			background: #333;
-			border-radius: 2px;
-			overflow: hidden;
-		}
-
-		.bar span {
-			display: block;
-			width: 0;
-			height: 100%;
-			background: #4fd1c5;
-		}
-	</style>
 
 	<script>
 		gsap.utils.toArray(".skill-group").forEach(group => {
@@ -526,30 +408,7 @@ gsap.utils.toArray(".skill-group").forEach(group => {
 				});
 			});
 		});
-
-	</script>
-
-
-
-	<section class="pin2-section">
-		<p class="text-item t2">완성도와 문제 정의부터 </p>
-		<p class="text-item t2">개선까지 책임해온 퍼블리셔로,</p>
-		<p class="text-item" style="margin-top:1.2rem">오랜 실무 경험을 바탕으로</p>
-		<p class="text-item">금융권 프로젝트에서</p>
-		<p class="text-item t_orange" style="margin-top:1.2rem">웹접근성과 공통 UI 가이드를</p>
-		<p class="text-item t_orange">구축 및 운영해왔으며</p>
-		<p class="text-item"style="margin-top:2.4rem">스크립트 이해를 통해 개발과 원활히</p>
-		<p class="text-item t_blue">협업해온 인재</p>
-		<p class="text-item"style="margin-top:4.0rem;">감사합니다.</p>
-		<div class="text-item"style="margin-top:4.0rem;">
-			<button type="button">Vue3 공통 가이드 컴포넌트</button>
-		</div>
-	</section>
-        
-
-
-	<script>
-		const section = document.querySelector(".pin2-section");
+		const section = document.querySelector(".pin-section");
 
 		const tl2 = gsap.timeline({
 			scrollTrigger: {
@@ -564,7 +423,7 @@ gsap.utils.toArray(".skill-group").forEach(group => {
 		});
 
 		// ⬇️ 첫 20%는 아무 변화 없는 구간
-		// tl2.to({}, { duration: 0.1 });
+		// tl2.to({}, { duration: 0.2 });
 
 		// ⬇️ 그 다음부터 텍스트 등장
 		tl2.fromTo(
@@ -580,84 +439,7 @@ gsap.utils.toArray(".skill-group").forEach(group => {
 				stagger: 0.2
 			}
 		);
-	</script>
 
-	<style>
-		.pin2-section {
-			min-height: 100vh;
-			display: flex;
-			align-items: center;
-			flex-direction: column;
-			justify-content: center;
-		}
-		
-		.pin2-section .text-item {
-			font-weight: 500;
-			line-height: 1.5;
-			text-align: center;
-			font-size:2.0rem;
-		}
-		.pin2-section .text-item.t2 {
-			font-size:2.4rem;
-			color: #fff;
-		}
-	</style>
-
-
-
-
-
-	
-
-
-	<!-- <div class="section3_wrap">
-		<section class="section3">
-			<p class="b_to_t">아래에서 위로 등장</p>
-			<p class="b_to_t">아래에서 위로 등장</p>
-			<p class="b_to_t">아래에서 위로 등장</p>
-			<p class="b_to_t">아래에서 위로 등장</p>
-		</section>
-	</div> -->
-
-
-
-
-
-
-
-
-
-	<!-- <section class="section_pin">
-		<div class="text-wrapper">
-			<p class="text left">아래에서 위로 등장</p>
-			<p class="text left">아래에서 위로 등장</p>
-			<p class="text left">아래에서 위로 등장</p>
-			<p class="text left">아래에서 위로 등장</p>
-			<p class="text right">오른쪽에서 등장</p>
-		</div>
-	</section>
-	<style>
-		.section_pin{height: 100vh;padding-top:200px;text-align: center;}
-		.section_pin .text {margin-top:40px}
-	</style> -->
-
-
-	<!-- <section class="horizontal-section">
-		<div class="list-wrapper">
-			<div class="item">1</div>
-			<div class="item">2</div>
-			<div class="item">3</div>
-			<div class="item">4</div>
-			<div class="item">5</div>
-		</div>
-	</section> -->
-
-	<!-- <section class="trigger">
-		<div class="box"></div>
-	</section> -->
-
-	<!-- <div class="spacer">끝</div> -->
-<script>
 		document.querySelectorAll("[data-ani]").forEach((item) => {
 			gsap.fromTo(
 				item.querySelectorAll("[data-ani='bTot']"),
@@ -677,9 +459,8 @@ gsap.utils.toArray(".skill-group").forEach(group => {
 				}
 			);
 		});
-	</script>
 
-	<script>
+
 		// 로딩되자마자 순차적 애니메이션
 		const bTot = document.querySelectorAll("[data-tl='bTot']");
 		const tTob = document.querySelectorAll("[data-tl='tTob']");
@@ -724,160 +505,6 @@ gsap.utils.toArray(".skill-group").forEach(group => {
 				opacity: 1, // 나타나기
 			}, item.dataset.delay / 10); // 딜레이 세팅
 		});
-
-
-
-
-
-
-
-
-		gsap.to(".box", {
-			x: 400,
-			rotation: 360,
-			scale: 1.5,
-			scrollTrigger: {
-				trigger: ".trigger",   // 기준 요소
-				start: "top center",   // 트리거 시작 지점
-				end: "bottom top",     // 트리거 끝 지점
-				scrub: true,           // 스크롤과 애니메이션 동기화
-				pin: true,             // 섹션 고정
-				//markers: true          // 개발용 마커 (배포 시 제거)
-			}
-		});
-
-
-
-		ScrollTrigger.create({
-			trigger: '.section3_wrap',
-			start: "top top",
-			// end: "+=100%",
-			end: "bottom top",
-			pin: true,
-			pinSpacing: true,
-			//markers: true
-		});
-
-		const bToT2 = document.querySelectorAll(".b_to_t");
-		bToT2.forEach(el => {
-			gsap.fromTo(el,
-				{ y: 300, opacity: 0 },
-				{
-					y: 0,
-					opacity: 1,
-					scrollTrigger: {
-						trigger: '.section3', // 각 요소 기준으로
-						start: "top 50%",
-						end: "center 20%",
-						scrub: true,
-						// markers: true
-					}
-				}
-			);
-		});
-
-		// 단독
-		gsap.fromTo('.left2',
-			{ x: 150, y: 150, opacity: 0 },
-			{
-				x: 0,
-				y: 0,
-				opacity: 1,
-				scrollTrigger: {
-					trigger: '.section2',
-					start: "top 80%",
-					end: "bottom top",
-					scrub: true,
-					// markers: true
-				}
-			}
-		);
-
-
-		gsap.utils.toArray(".section_pin").forEach(section => {
-			// 1️⃣ section 전체 pin
-			ScrollTrigger.create({
-				trigger: section,
-				start: "top top",
-				end: "+=100%",
-				pin: true,
-				pinSpacing: true,
-				//markers: true
-			});
-
-			// 2️⃣ 내부 텍스트 등장 애니메이션
-			const leftText = section.querySelector(".text.left");
-			const rightText = section.querySelector(".text.right");
-
-			// 섹션 안의 모든 왼쪽 텍스트
-			const leftTexts = section.querySelectorAll(".text.left");
-			leftTexts.forEach(el => {
-				gsap.fromTo(el,
-					{ y: 100, opacity: 0 },
-					{
-						y: 0,
-						opacity: 1,
-						scrollTrigger: {
-							trigger: el, // 각 요소 기준으로
-							start: "top 60%",
-							end: "bottom top",
-							scrub: true,
-							// markers: true
-						}
-					}
-				);
-			});
-
-			/* gsap.fromTo(leftText,
-				{ x: -150, y: 100, opacity: 0 },
-				{
-					x: 0,
-					y: 0,
-					opacity: 1,
-					scrollTrigger: {
-						trigger: ".section",
-						start: "center 90%",
-						end: "bottom top",
-						scrub: true,
-						// markers: true
-					}
-				}
-			);
- */
-			gsap.fromTo(rightText,
-				{ x: 150, y: 150, opacity: 0 },
-				{
-					x: 0,
-					y: 0,
-					opacity: 1,
-					scrollTrigger: {
-						trigger: ".section",
-						start: "top center",
-						end: "bottom top",
-						scrub: true,
-						//markers: true
-					}
-				}
-			);
-		});
-
-
-		/* const horizontalSection = document.querySelector(".horizontal-section");
-		const listWrapper = horizontalSection.querySelector(".list-wrapper");
-
-		gsap.to(listWrapper, {
-			x: () => `-${listWrapper.scrollWidth - horizontalSection.clientWidth}px`, // 오른쪽 끝까지 이동
-			ease: "none",
-			scrollTrigger: {
-				trigger: horizontalSection,
-				start: "top top",
-				end: () => `+=${listWrapper.scrollWidth}`, // 스크롤 길이 = 컨텐츠 너비
-				pin: true,
-				scrub: true,
-				// markers: true
-			}
-		}); */
-
 
 
 	</script>
